@@ -45,7 +45,7 @@ export class MapRenderer {
             div.style.backgroundImage = "url('Sprites/" + cell.pieces[0].SpriteName + "')";
         }
         if(cell.selected) {
-            div.style.borderColor = 'white';
+            //div.style.borderColor = 'white';
         }
     }
 

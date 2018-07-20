@@ -3,10 +3,13 @@
 }
 
 .mapCell {
-    height: 26;
-    width: 36;
+    height: 33;
+    width: 42;
     display: inline-block;
     border-width: 1px;
     border-color: black;
     border-style: solid;
+    background-size: cover;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
 }
