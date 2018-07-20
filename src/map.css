@@ -1,0 +1,12 @@
+#map {
+    white-space: nowrap
+}
+
+.mapCell {
+    height: 26;
+    width: 36;
+    display: inline-block;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
