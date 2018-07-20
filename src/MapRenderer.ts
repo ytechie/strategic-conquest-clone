@@ -50,6 +50,6 @@ export class MapRenderer {
     }
 
     cellClicked(cell:MapCell) {
-        console.log(cell);
+        this.grid.clickCell(cell);
     }
 }

@@ -7,15 +7,20 @@ export class Grid {
     readonly Matrix:Array<Array<MapCell>> = [];
     readonly renderer:MapRenderer;
     private cellUpdated:(cell:MapCell) => void;
+    private cellClicked:(cell:MapCell) => void;
     private lastActiveCell:MapCell;
 
     constructor(mapWidth:number, mapHeight:number) {
         this.cellUpdated = (cell) => {};
+        this.cellClicked = (cell) => {};
 
         for(let i = 0; i<mapWidth; i++) {
             this.Matrix[i] = new Array<MapCell>(mapHeight);
             for(let j = 0; j<mapHeight; j++) {
-                this.Matrix[i][j] = new LandCell();
+                let newCell = new LandCell();
+                newCell.x = i; //maybe add this to the ctor?
+                newCell.y = j;
+                this.Matrix[i][j] = newCell;
             }
         }
     }
@@ -37,8 +42,16 @@ export class Grid {
         this.cellUpdated(cell);
         this.lastActiveCell = cell;
     }
+
+    clickCell(cell:MapCell) {
+        this.cellClicked(cell);
+    }
     
     listenForChanges(callback:(cell:MapCell) => void) {
         this.cellUpdated = callback;
+    }
+
+    listenForClicks(callback:(cell:MapCell) => void) {
+        this.cellClicked = callback;
     }
 }

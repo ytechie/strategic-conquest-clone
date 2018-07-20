@@ -11,5 +11,10 @@ export class Player {
 
         grid.addPiece(4, 4, firstTank);
         grid.setActiveCell(4,4);
+
+        grid.listenForClicks((cell) => {
+            grid.addPiece(cell.x, cell.y, firstTank);
+            grid.setActiveCell(cell.x,cell.y);
+        });
     }
 }
